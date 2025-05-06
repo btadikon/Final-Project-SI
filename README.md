@@ -156,7 +156,7 @@ These endpoints are for testing purposes and demonstrate RESTful operations:
 ---
 
 ## 📸 Swagger Screenshot
- ![alt text](swagger UI.png)
+  ![alt text](swagger UI.png)
 
 ---
 
