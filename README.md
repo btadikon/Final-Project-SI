@@ -37,7 +37,7 @@ Select your subscription,
 Click on Resource providers,  
 Search for "Microsoft.Cdn",  
 Click "Register"   
-![alt text](analyze.png)
+ ![alt text](azure.png)
 
 ## Environment Variables
 4.Create a .env file in your project root with the following keys:  
@@ -67,7 +67,7 @@ PORT=5000
 6.Start your application using PM2  
         pm2 start app.js  
 
-![alt text](images/pm2.png)
+
 
 It will be accessible at     
 Server at `http://161.35.141.107:5000/`  
@@ -78,34 +78,34 @@ API Documentation at `http://161.35.141.107:5000/api-docs/`
 ### 1. Analyze (All-in-one)
 - **POST** `/api/vision/analyze`
 - Analyze an image from URL with multiple features including faces, categories, objects, etc.
+  ![alt text](analyze.png)
 
-### 2. Analyze Upload
-- **POST** `/api/vision/analyze-upload`
-- Upload and analyze an image file using multipart/form-data.
-
-### 3. Tags
-- **POST** `/api/vision/tags`
-- Detect tags describing the image content.
-
-### 4. Objects
+### 2. Objects
 - **POST** `/api/vision/objects`
 - Detect objects and their coordinates in the image.
+  ![alt text](objects.png)
 
-### 5. Describe
-- **POST** `/api/vision/describe`
+### 3. Describe
+- **PUT** `/api/vision/describe`
 - Get a textual description of the image.
+  ![alt text](describe.png)
 
-### 6. Faces
-- **POST** `/api/vision/faces`
-- Detect faces and metadata (age/gender) in the image.
+### 4. status
+- **GET** `/api/vision/status`
+- Detect wheather the server running or not gives status.
+  ![alt text](status.png)
+  
 
-### 7. Colors
+### 5. Colors
 - **POST** `/api/vision/colors`
 - Extract dominant foreground/background colors and accent color.
+  ![alt text](colors.png)
 
-### 8. Text (OCR)
+
+### 6. Text (OCR)
 - **POST** `/api/vision/text`
 - Extract printed text from an image using Azure OCR.
+  ![alt text](text.png)
 
 ---
 
@@ -113,21 +113,10 @@ API Documentation at `http://161.35.141.107:5000/api-docs/`
 
 These endpoints are for testing purposes and demonstrate RESTful operations:
 
-### 9. Update Description (Mock)
-- **PUT** `/api/vision/describe`
-- Update label for an image (simulated).
-
-### 10. Patch Label (Mock)
+### 7. Patch Label (Mock)
 - **PATCH** `/api/vision/label`
 - Partially update image label (simulated).
-
----
-
-## 🔁 Status Check
-
-### 11. Server Status
-- **GET** `/api/status`
-- Returns server status and current timestamp.
+   ![alt text](label.png)
 
 ---
 
@@ -167,17 +156,14 @@ These endpoints are for testing purposes and demonstrate RESTful operations:
 ---
 
 ## 📸 Swagger Screenshot
-(Include screenshot of Swagger UI after pushing)
+ ![alt text](swagger UI.png)
 
 ---
 
 ## ✍️ Author
 
-Developed by [Your Name]
+Developed by [Bharadwaaja]
 
----
-
-## 🔍 Sample Request & Response Examples
 
 ### ✅ Analyze URL
 **POST** `/api/vision/analyze`
@@ -204,11 +190,7 @@ Developed by [Your Name]
 }
 ```
 
----
 
-### 🖼️ Upload File Example
-**POST** `/api/vision/analyze-upload`  
-Use `form-data` in Postman with a key `image` and upload a JPG/PNG file.
 
 ---
 
