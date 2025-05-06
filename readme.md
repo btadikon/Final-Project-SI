@@ -735,3 +735,50 @@ Any internal server error (e.g., network issues, invalid Azure API credentials, 
 # Conclusion  
 
 The Azure AI Image Analysis API provides a versatile suite of endpoints to analyze images for various features, including object detection, image descriptions, text recognition, face detection, and color analysis.  
+
+
+# 8. text: /api/vision/text
+
+The `/api/vision/text` endpoint uses **Optical Character Recognition (OCR)** to detect and extract printed text from images. It returns language, angle, and orientation metadata, along with detected text regions (if any). Ideal for automating workflows that require extracting text from documents, labels, or visual content.
+
+![alt text](images/text.png)
+
+## Request
+
+- **URL:** `http://157.230.209.216:5000/api/vision/text`  
+- **Method:** `POST`  
+- **Headers:** `Content-Type: application/json`  
+- **Body:**
+
+```json
+{
+  "imageUrl": "https://ncartmuseum.org/wp-content/uploads/2024/11/Winter-Slow-Art-12-18-24-by-Brye-Senor-scaled.jpg"
+}
+```
+
+## Response
+
+✅ **Success Response:**
+- **Status Code:** `200 OK`
+
+```json
+{
+  "language": "unk",
+  "textAngle": 0,
+  "orientation": "NotDetected",
+  "regions": [],
+  "modelVersion": "2021-04-01"
+}
+```
+
+⚠️ **Note:**  
+- If no text is detected, `regions` will be an empty array.
+- `"unk"` means language couldn't be identified.
+
+## Error Handling (Already Covered)
+
+| Status Code | Error Description                              | Example Request                        |
+|-------------|--------------------------------------------------|----------------------------------------|
+| `400`       | `Image URL is required`                         | `{}`                                   |
+| `400`       | `Invalid URL format`                            | `{ "imageUrl": "invalid-url" }`        |
+| `500`       | `An error occurred during image analysis`       | (e.g., Azure service issues)           |
