@@ -37,7 +37,7 @@ Select your subscription,
 Click on Resource providers,  
 Search for "Microsoft.Cdn",  
 Click "Register"   
-![alt text](images/image.png)
+![alt text](analyze.png)
 
 ## Environment Variables
 4.Create a .env file in your project root with the following keys:  
